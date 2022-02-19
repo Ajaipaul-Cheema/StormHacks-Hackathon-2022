@@ -1,9 +1,9 @@
-import React from 'react';
 import './App.css';
-import SignInOutContainer from './containers';
+import React from 'react';
 import { CssBaseline, makeStyles } from '@material-ui/core';
 import Header from './components/Header'
-import Features from './components/Features';
+import Features from './components/Features'
+import SignInOutContainer from './containers/SignInOutContainer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,9 +15,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <SignInOutContainer />
+    <div className = {classes.root}>
+      <CssBaseline/>
+      <Header />
+      <Features />
     </div>
   );
 }
