@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-bootstrap-validation": "^0.1.11",
+    "redux": "^4.1.2"
+  }
+}

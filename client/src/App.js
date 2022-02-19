@@ -3,7 +3,10 @@ import React from 'react';
 import { CssBaseline, makeStyles } from '@material-ui/core';
 import Header from './components/Header'
 import Features from './components/Features'
+import ShowProfile from "./components/Form";
 import SignInOutContainer from './containers/SignInOutContainer';
+import './App.css';
+import Form from './components/Form'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +20,11 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   return (
-    <div className = {classes.root}>
-      <CssBaseline/>
+    <div>
+      <Form />
+      {/* <CssBaseline/>
       <Header />
-      <Features />
+      <Features /> */}
     </div>
   );
 }
