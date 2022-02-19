@@ -6,7 +6,7 @@ const express = require('express')
 const app = express()
 const accessTokenSecret = 'lol';
 const activeTokens = [];
-
+app.use(express.json());
 app.use(bodyParser.json());
 
 app.post('/signup', async (req, res) => {
@@ -80,6 +80,6 @@ app.get('/', authenticateJWT, (req, res) => {
 });
 
 
-app.listen(5000, () => {
-    console.log("http://localhost:5000")
+app.listen(9000, () => {
+    console.log("http://localhost:5000/")
 })
