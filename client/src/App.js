@@ -7,7 +7,7 @@ function App() {
       username: 'test',
       password: 'test'
     }).then((res) => {
-      console.log(res)
+      console.log(res.data['token'])
     }).catch((err) => {
       console.log(err)
     })
