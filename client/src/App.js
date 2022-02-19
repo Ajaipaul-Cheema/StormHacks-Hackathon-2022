@@ -1,9 +1,16 @@
 import axios from 'axios';
 
+
 function App() {
+  function lol() {
+    axios.post('http://localhost:5000/auth/login', {
+      username: 'test',
+      password: 'test'
+    })
+  }
   return (
     <div className="App">
-
+      <button onClick={lol}>mf</button>
     </div>
   );
 }
