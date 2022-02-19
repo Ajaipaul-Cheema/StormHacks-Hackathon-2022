@@ -6,6 +6,10 @@ function App() {
     axios.post('http://localhost:5000/auth/login', {
       username: 'test',
       password: 'test'
+    }).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
     })
   }
   return (
