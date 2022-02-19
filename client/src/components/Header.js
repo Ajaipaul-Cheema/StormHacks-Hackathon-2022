@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SortIcon from '@material-ui/icons/Sort'
-import { AppBar, Collapse, CssBaseline, IconButton, makeStyles, Toolbar } from '@material-ui/core';
+import { AppBar, Collapse, CssBaseline, IconButton, makeStyles, Menu, MenuItem, Toolbar } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles((theme) => ({
@@ -49,6 +49,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
+
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClose = () => {
+      setAnchorEl(null)
+  }
+
+  const openMenu = (event) => {
+      setAnchorEl(event.currentTarget)
+  }
+
     const classes = useStyles();
     const [checked, setChecked] = useState(false);
     useEffect(() => {
@@ -61,9 +72,19 @@ export default function Header() {
                     <h1 className={classes.appbarTitle}>
                         Study<span className={classes.colorText}>Space.</span>
                     </h1>
-                    <IconButton>
+                    <IconButton onClick={openMenu}>
                         <SortIcon className={classes.icon} />
                     </IconButton>
+                    <Menu
+                        id="menu"
+                        anchorEl ={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                        >
+                        <MenuItem onClick={handleClose}>Log In</MenuItem>
+                        <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                        <MenuItem onClick={handleClose}>About StudySpace</MenuItem>
+                    </Menu>
                 </Toolbar>
             </AppBar>
 
