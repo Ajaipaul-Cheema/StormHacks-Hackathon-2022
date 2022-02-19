@@ -34,8 +34,8 @@ const Signup = () => {
                         </RadioGroup>
                     </FormControl>
                     <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
-                    <TextField fullWidth label='Password' placeholder="Enter your password"/>
-                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>
+                    <TextField fullWidth label='Password' placeholder="Enter your password" />
+                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password" />
                     <FormControlLabel
                         control={<Checkbox name="checkedA" />}
                         label="I accept the terms and conditions."
