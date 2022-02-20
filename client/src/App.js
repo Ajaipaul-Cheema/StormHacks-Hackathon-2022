@@ -21,8 +21,10 @@ export default function App() {
   const classes = useStyles();
   return (
     <div>
-      <div >
-        <Sharedtextarea/>
+      <div className = {classes.root}>
+        <CssBaseline />
+        <Header />
+        <Features />
       </div>
     </div>
   );
