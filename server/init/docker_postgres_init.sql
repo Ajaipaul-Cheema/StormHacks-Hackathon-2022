@@ -5,4 +5,4 @@ create TABLE users(
     password TEXT NOT NULL
 );
 
-insert into users ("email", "username", "password") VALUES ($, 'test', 'test')
+insert into users ("email", "username", "password") VALUES ('test', 'test', 'test')
