@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react'
 import SortIcon from '@material-ui/icons/Sort'
 import { AppBar, Collapse, CssBaseline, IconButton, makeStyles, Menu, MenuItem, Toolbar } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import {
+    BrowserRouter,
+    Routes,
+    Route
+} from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -50,15 +57,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
 
-  const [anchorEl, setAnchorEl] = React.useState(null)
+    const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handleClose = () => {
-      setAnchorEl(null)
-  }
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
 
-  const openMenu = (event) => {
-      setAnchorEl(event.currentTarget)
-  }
+    const openMenu = (event) => {
+        setAnchorEl(event.currentTarget)
+    }
 
     const classes = useStyles();
     const [checked, setChecked] = useState(false);
@@ -77,12 +84,13 @@ export default function Header() {
                     </IconButton>
                     <Menu
                         id="menu"
-                        anchorEl ={anchorEl}
+                        anchorEl={anchorEl}
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
-                        >
-                        <MenuItem onClick={handleClose}>Log In</MenuItem>
-                        <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                    >
+                        <MenuItem onClick={handleClose}>
+                            <Link to="/auth">Login/Sign Up</Link>
+                        </MenuItem>
                         <MenuItem onClick={handleClose}>About StudySpace</MenuItem>
                     </Menu>
                 </Toolbar>

@@ -51,7 +51,7 @@ router
 
         let addUser = await db.query(query)
         const token = jwt.sign({ username: addUser.rows[0] }, accessTokenSecret)
-        return res.sendStatus(201)
+        res.json({ token })
 
     })
 

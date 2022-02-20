@@ -1,9 +1,11 @@
 import './App.css';
 import React from 'react';
-import { CssBaseline, makeStyles } from '@material-ui/core';
+import { Button, CssBaseline, makeStyles } from '@material-ui/core';
 import Header from './components/Header'
 import Features from './components/Features'
 import SignInOutContainer from './containers/SignInOutContainer';
+import { Routes, Route, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,15 +16,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function App() {
+export default function App() {
   const classes = useStyles();
   return (
-    <div className = {classes.root}>
-      <CssBaseline/>
-      <Header />
-      <Features />
+    <div>
+      <div className = {classes.root}>
+        <CssBaseline />
+        <Header />
+        <Features />
+      </div>
     </div>
   );
 }
-
-export default App;
+// function App() {
+//   const classes = useStyles();
+//   return (
+//     <div className = {classes.root}>
+//       {/* <CssBaseline/>
+//       <Header />
+//       <Features /> */}
+//     </div>
+//   );
+//}
