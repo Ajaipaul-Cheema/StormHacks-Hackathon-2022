@@ -12,7 +12,7 @@ render(
       <Route path="/" element={<App />} />
       <Route path="auth" element={<SignInOutContainer />} />
       <Route path="dashboard" element={<Dashboard />} />
-      <Route path="summorize" element={<Sharedtextarea />} />
+      <Route path="/summorize" element={<Sharedtextarea />} />
     </Routes>
   </BrowserRouter>,
   rootElement

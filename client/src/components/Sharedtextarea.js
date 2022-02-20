@@ -12,17 +12,26 @@ const Sharedtextarea = () => {
     for (let [key, value] of formData.entries()) {
       arr[key] = value
     }
-    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.get('http://localhost:9000/api/summorize', { withCredentials: false }, {
-      text: arr['Text'],
-      len: arr['sentenceNumber'],
-    }).then((res) => {
-      console.log(res.data['text'])
-    }).catch((err) => {
-      console.log(err)
-      alert("Something went wrong")
-    })
+    console.log(arr['Text'])
+    let f = new FormData()
+
+    f.append("key", "c69d14e1894b2e000ca835ca3b785ef2");
+    f.append("txt", `${arr['text']}`);
+    f.append("sentences", `${arr['sentenceNumber']}`);
+
+    const requestOptions = {
+      method: 'POST',
+      body: f,
+      redirect: 'follow'
+    };
+
+    const response = fetch("https://api.meaningcloud.com/summarization-1.0", requestOptions)
+      .then(response => ({
+        status: response.status,
+        body: response.json()
+      }))
+      .then(({ status, body }) => console.log(status, body))
+      .catch(error => console.log('error', error));
   }
 
   return (
@@ -32,12 +41,12 @@ const Sharedtextarea = () => {
           <label>Enter Text To Summarize: </label><br />
           <br />
 
-          <textarea id="mainbox" type="textare"
+          <input id="mainbox" type="textare"
             name="Text" />
           <br />
           <label>Summarized Text: </label><br /><br />
-          <textarea id="summarized" type="textare"
-            name="Text" />
+          <input id="summarized" type="textare"
+            name="answer" />
           <br />
           <label>Sentence Number: </label><br /><br />
           <input id="sentenceinput" type="number" name="sentenceNumber" min="1" />

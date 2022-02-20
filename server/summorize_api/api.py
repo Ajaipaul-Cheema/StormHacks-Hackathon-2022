@@ -1,13 +1,12 @@
-from email import header
+import os
+import sys
 import json
 import requests
-from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
 
-app = Flask(__name__)
-cors = CORS(app, support_credentials=True)
 
-def summerizeTextAPI(text, numOfSentences):
+def summerizeTextAPI():
+    text = sys.argv[1]
+    numOfSentences = sys.argv[2]
     url = "https://api.meaningcloud.com/summarization-1.0"
     payload= {
     'key': 'c69d14e1894b2e000ca835ca3b785ef2',
@@ -16,17 +15,7 @@ def summerizeTextAPI(text, numOfSentences):
 
     res = requests.post(url, data=payload)
     a = res.text
-    return json.loads(a)
+    print(json.loads(a))
+    sys.stdout.flush()
 
-
-@app.route("/api/summorize", methods = ['GET'])
-def summorize():
-    data = request.json
-    a = summerizeTextAPI(data['text'], data['len'])
-    response = jsonify(a)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-
-if __name__ == "__main__":
-    app.run(host="localhost", debug=True, port=9000)
-
+summerizeTextAPI()
