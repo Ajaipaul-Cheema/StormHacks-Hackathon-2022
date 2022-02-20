@@ -47,7 +47,6 @@ const Sharedtextarea = () => {
           <textarea id="summarized" type="textare"
             name="answer" />
           </div>
-          <br />
           <label>Sentence Number: </label><br /><br />
           <input id="sentenceinput" type="number" name="sentenceNumber" min="1" />
           <br></br><br />
