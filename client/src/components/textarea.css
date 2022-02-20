@@ -16,7 +16,7 @@ input::-webkit-inner-spin-button {
 
 #mainbox {
     width: 500px;
-    height: 430px;
+    height: 170px;
     padding-top: 0;
     padding-bottom: 0;
     text-align: left;
@@ -33,6 +33,28 @@ input::-webkit-inner-spin-button {
     transition: all 0.2s ease-in-out;
     font-size: 14px;
     resize: none;
+}
+
+#summarized {
+  width: 500px;
+  height: 170px;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: left;
+  background: transparent;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-radius: 50px;
+  box-shadow: 4px 4px 60px rgba(0,0,0,0.4);
+  color: black;
+  font-family: Montserrat, sans-serif;
+  transition: all 0.2s ease-in-out;
+  font-size: 14px;
+  resize: none;
+  pointer-events: none;
 }
 
 .container {
