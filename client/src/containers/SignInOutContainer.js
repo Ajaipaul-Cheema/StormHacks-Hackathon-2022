@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Login from '../components/login'
 import Signup from '../components/signup'
+import { Button, CssBaseline, makeStyles } from '@material-ui/core';
 
 const SignInOutContainer = () => {
   const [value, setValue] = useState(0)
@@ -14,6 +15,7 @@ const SignInOutContainer = () => {
   };
 
   const paperStyle = { width: 340, margin: "20px auto" }
+  
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
 

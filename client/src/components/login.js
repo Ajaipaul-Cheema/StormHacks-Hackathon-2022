@@ -2,9 +2,10 @@ import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './signup.css';
 
 const Login = () => {
-    const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
+    const paperStyle = { padding: 20, height: 210 ,width: 300, margin: "0 auto" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 5 }
@@ -38,12 +39,14 @@ const Login = () => {
                     <h2 style={headerStyle}>Login</h2>
                     <br></br>
                 </Grid>
+                <div>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="username" placeholder="Username" />
                     <input type="password" name="password" placeholder="Password" />
-                    <br></br>
-                    <button type="submit">Login</button>
+                    <br></br><br></br>
+                    <button id="signin-button"  type="submit">Login</button>
                 </form>
+                </div>
             </Paper>
         </Grid>
     )
