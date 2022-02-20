@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function App() {
+
+ function App() {
   const classes = useStyles();
   return (
     <div>
@@ -29,13 +30,5 @@ export default function App() {
     </div>
   );
 }
-// function App() {
-//   const classes = useStyles();
-//   return (
-//     <div className = {classes.root}>
-//       {/* <CssBaseline/>
-//       <Header />
-//       <Features /> */}
-//     </div>
-//   );
-//}
+
+export default App
