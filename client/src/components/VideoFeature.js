@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Outlet, Link } from "react-router-dom";
 
 export default function VideoFeature() {
   return (
@@ -26,7 +27,7 @@ export default function VideoFeature() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Go</Button>
+        <Button size="small"><Link to='/video' target="_blank">Go</Link></Button>
       </CardActions>
     </Card>
   );
