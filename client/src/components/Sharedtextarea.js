@@ -12,7 +12,6 @@ const Sharedtextarea = () => {
     for (let [key, value] of formData.entries()) {
       arr[key] = value
     }
-    console.log(arr['Text'])
     let f = new FormData()
 
     f.append("key", "c69d14e1894b2e000ca835ca3b785ef2");
@@ -26,7 +25,10 @@ const Sharedtextarea = () => {
     };
 
     const response = await fetch('https://api.meaningcloud.com/summarization-1.0', requestOptions)
-    
+    .then((response) => response.json())
+    .then(data => {
+      console.log(data['summary'])
+    }).catch(err => console.log(err))
   }
 
   return (
