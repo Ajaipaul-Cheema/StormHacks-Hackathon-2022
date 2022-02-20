@@ -28,6 +28,7 @@ const Sharedtextarea = () => {
     .then((response) => response.json())
     .then(data => {
       console.log(data['summary'])
+      document.getElementById("summarized").value = data['summary']; 
     }).catch(err => console.log(err))
   }
 
@@ -42,8 +43,10 @@ const Sharedtextarea = () => {
             name="Text" />
           <br />
           <label>Summarized Text: </label><br /><br />
-          <input id="summarized" type="textare"
+          <div id="summary">
+          <textarea id="summarized" type="textare"
             name="answer" />
+          </div>
           <br />
           <label>Sentence Number: </label><br /><br />
           <input id="sentenceinput" type="number" name="sentenceNumber" min="1" />

@@ -13,6 +13,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+#summary {
+    text-align: center;
+}
 
 #mainbox {
     width: 520px;
