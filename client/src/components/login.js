@@ -1,32 +1,52 @@
 import React from 'react'
-import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core'
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
-
-const Login = ({ handleChange }) => {
-
-    const paperStyle = { padding: 20, height: '73vh', width: 300, margin: "0 auto" }
+const Login = () => {
+    const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
+    const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const btnstyle = { margin: '8px 0' }
+    const marginTop = { marginTop: 5 }
+    const navigate = useNavigate();
+
+    function handleSubmit(event) {
+        const formData = new FormData(event.currentTarget);
+        event.preventDefault();
+        let arr = {}
+        for (let [key, value] of formData.entries()) {
+            arr[key] = value
+        }
+
+        axios.post('http://localhost:5000/auth/login', {
+            username: arr['username'],
+            password: arr['password'],
+        }).then((res) => {
+            localStorage.setItem("token", res.data['token'])
+            console.log(localStorage.getItem("token"))
+            return navigate('/dashboard')
+        }).catch((err) => {
+            console.log(err)
+            alert("Wrong Username or Password")
+        })
+    }
+
     return (
         <Grid>
             <Paper style={paperStyle}>
                 <Grid align='center'>
-                    <h2>Sign In</h2>
+                    <h2 style={headerStyle}>Login</h2>
+                    <br></br>
                 </Grid>
-                <TextField label='Username' placeholder='Enter username' fullWidth required />
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
-                    <Link href="#" onClick={() => handleChange("event", 1)} >
-                        Sign Up
-                    </Link>
-                </Typography>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <br></br>
+                    <button type="submit">Login</button>
+                </form>
             </Paper>
         </Grid>
     )
 }
 
-export default Login
+export default Login;
