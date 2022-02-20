@@ -1,29 +1,30 @@
 import React, { Component } from "react";
 
-class Sharedtextarea extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "React"
-    };
-  }
+import './textarea.css';
 
+class Sharedtextarea extends Component {
   render() {
     return (
       <div>
         <label>Enter Text: </label>
-        <input type="textare" 
+        <br></br>
+        <input id="mainbox" type="textare" 
           name="Text"
           onChange={this.props.handleChange}
         />
-         <input type="text" 
+        <br></br>
+        <br></br>
+         <input id="linenumber" type="text" 
           name="sentenceNumber"
           onChange={this.props.handleChange}
         />
+        <br></br>
          <button type="submit">Summarize</button>
       </div>
+
     );
   }
 }
+
 
 export default Sharedtextarea;
