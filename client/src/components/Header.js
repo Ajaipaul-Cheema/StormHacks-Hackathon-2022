@@ -65,7 +65,16 @@ export default function Header() {
 
     const openMenu = (event) => {
         setAnchorEl(event.currentTarget)
+
+        
     }
+
+    const scrollToBottom = () => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth'
+        });
+    };
 
     const classes = useStyles();
     const [checked, setChecked] = useState(false);
@@ -107,7 +116,7 @@ export default function Header() {
                         Study<span className={classes.colorText}>Space.</span>
                     </h1>
                     <IconButton>
-                        <ExpandMoreIcon className={classes.goDown} />
+                        <ExpandMoreIcon className={classes.goDown} onClick = {scrollToBottom} />
                     </IconButton>
 
                 </div>
