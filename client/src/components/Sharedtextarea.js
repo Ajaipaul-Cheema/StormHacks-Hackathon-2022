@@ -12,7 +12,7 @@ const Sharedtextarea = () => {
     for (let [key, value] of formData.entries()) {
       arr[key] = value
     }
-    axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     axios.get('http://localhost:9000/api/summorize', { withCredentials: false }, {
       text: arr['Text'],
@@ -26,19 +26,21 @@ const Sharedtextarea = () => {
   }
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <label>Enter Text To Summarize: </label><br />
-        <br />
+    <div className="main">
+      <div className="container">
+        <form className="textForm" onSubmit={handleSubmit}>
+          <label>Enter Text To Summarize: </label><br />
+          <br />
 
-        <textarea id="mainbox" type="textare"
-          name="Text"/>
-        <br />
-        <label>Sentence Number: </label><br /><br />
-        <input type="number" name="sentenceNumber" min="1" />
-        <br></br><br />
-        <button type="submit">Summarize</button>
-      </form>
+          <textarea id="mainbox" type="textare"
+            name="Text" />
+          <br />
+          <label>Sentence Number: </label><br /><br />
+          <input id="sentenceinput" type="number" name="sentenceNumber" min="1" />
+          <br></br><br />
+          <button id="text-submit" type="submit">Summarize</button>
+        </form>
+      </div>
     </div>
   )
 }
