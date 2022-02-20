@@ -1,12 +1,14 @@
 import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core'
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 5 }
+    const navigate = useNavigate();
 
     function handleSubmit(event) {
         const formData = new FormData(event.currentTarget);
@@ -23,7 +25,7 @@ const Signup = () => {
         }).then((res) => {
             localStorage.setItem("token", res.data['token'])
             console.log(localStorage.getItem("token"))
-
+            return navigate('/dashboard')
         }).catch((err) => {
             console.log(err)
             alert("Username or Email already exists")

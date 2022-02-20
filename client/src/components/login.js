@@ -14,7 +14,6 @@ const Login = ({ handleChange }) => {
         <Grid>
             <Paper style={paperStyle}>
                 <Grid align='center'>
-                    <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Sign In</h2>
                 </Grid>
                 <TextField label='Username' placeholder='Enter username' fullWidth required />
