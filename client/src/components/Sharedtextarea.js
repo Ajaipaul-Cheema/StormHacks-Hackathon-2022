@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import './textarea.css';
 
 const Sharedtextarea = () => {
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     const formData = new FormData(event.currentTarget);
     event.preventDefault();
     let arr = {}
@@ -16,7 +16,7 @@ const Sharedtextarea = () => {
     let f = new FormData()
 
     f.append("key", "c69d14e1894b2e000ca835ca3b785ef2");
-    f.append("txt", `${arr['text']}`);
+    f.append("txt", `${arr['Text']}`);
     f.append("sentences", `${arr['sentenceNumber']}`);
 
     const requestOptions = {
@@ -25,13 +25,8 @@ const Sharedtextarea = () => {
       redirect: 'follow'
     };
 
-    const response = fetch("https://api.meaningcloud.com/summarization-1.0", requestOptions)
-      .then(response => ({
-        status: response.status,
-        body: response.json()
-      }))
-      .then(({ status, body }) => console.log(status, body))
-      .catch(error => console.log('error', error));
+    const response = await fetch('https://api.meaningcloud.com/summarization-1.0', requestOptions)
+    
   }
 
   return (
